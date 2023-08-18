@@ -24,8 +24,15 @@ export function App () {
     setImageURL(result)
   }, [fact])
 
+  const handleFetchFact = () => {
+    fetch(CAT_ENDPOINT_RANDOM_FACT)
+      .then(res => res.json())
+      .then(res => setFact(res.fact))
+  }
   return (
     <div>
+      <h1>Kittens app :3</h1>
+      <button onClick={handleFetchFact}> Get new Kitten </button>
       { fact && <h1>{fact}</h1>}
       { imageURL &&
         <img src={imageURL}
