@@ -1,24 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useCatImage } from './hooks/useCatImage.js'
-import { getRandomFact } from './services/facts.js'
+import { useCatFact } from './hooks/useCatFact.js'
 
 export function App () {
-  const [fact, setFact] = useState('')
+  const { fact, refreshCatFact } = useCatFact()
   const { imageURL } = useCatImage({ fact })
 
-  useEffect(() => {
-    getRandomFact().then(newFact => setFact(newFact))
-  }, [])
-
-  const handleClick = () => {
-    getRandomFact().then(newFact => setFact(newFact))
-  }
+  useEffect(refreshCatFact, [])
 
   return (
     <>
       <h1>Kittens app 😺😹🐈</h1>
-      <button onClick={handleClick}> Get new Kitten </button>
-      { fact && <h1>{fact}</h1>}
+      <button onClick={refreshCatFact}> Get new Kitten </button>
+
+      { fact && <h1>{fact}</h1> }
       { imageURL &&
         <img src={imageURL}
              alt={`Image extracted usign the firts three words of: "${fact}"`}
