@@ -8,7 +8,8 @@ Prueba técnica para Juniors y Trainees en React. Consiste en recuperar de un AP
 
 Technical test for Juniors and Trainees in React. It consists of retrieving a phrase from an API and, based on it, consulting another API to obtain an image. We separate CustomHooks, Services and keep a straightforward Main Component.
 
-![react-proficiency-test-1](https://github.com/amaimus/react-proficiency-test-1/assets/35699916/4a2ea528-d87b-4309-a5da-b681b1b3b13c)
+
+<img src='public/react-proficiency-test-1.png'/>
 
 --- 
 
